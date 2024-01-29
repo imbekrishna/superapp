@@ -1,9 +1,7 @@
+import ProfileCard from '../../components/ProfileCard';
+
 const index = () => {
-  return (
-    <div>
-      <h1>homepage</h1>
-    </div>
-  );
+  return <ProfileCard />;
 };
 
 export default index;
