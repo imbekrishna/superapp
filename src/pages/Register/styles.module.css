@@ -1,0 +1,62 @@
+.flexContainer {
+  min-height: 100vh;
+  display: flex;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+}
+
+.registerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  flex: 1;
+  background: url('/src/assets/images/register_page_bg.jpg');
+  background-size: cover;
+  padding: 2rem;
+}
+
+.registerLeft h1 {
+  font-size: 3.5rem;
+  max-width: 40pc;
+}
+
+.registerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  flex: 1;
+}
+
+.registerRightTop {
+  text-align: center;
+}
+
+.registerRight h2 {
+  font-family: 'Single Day', cursive;
+  color: var(--color-primary);
+  font-size: 3rem;
+}
+
+.registerRight h3 {
+  font-family: 'DM sans', sans-serif;
+  font-weight: lighter;
+  margin-block: 0.5rem;
+}
+
+.formContainer {
+  max-width: 70%;
+  min-width: 50%;
+  width: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+  .formContainer {
+    max-width: 60%;
+  }
+  .registerLeft{
+    padding: 4rem;
+  }
+}

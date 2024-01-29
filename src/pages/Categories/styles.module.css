@@ -1,0 +1,61 @@
+.flexContainer {
+  min-height: 100vh;
+  display: flex;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+}
+
+.categoryLeft {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  row-gap: 4rem;
+  margin-left: 4rem;
+}
+
+.categoryLeft h1 {
+  font-family: 'Single Day', cursive;
+  color: var(--color-primary);
+  font-size: 3rem;
+}
+
+.categoryLeft h2 {
+  font-size: 3.5rem;
+  max-width: 40pc;
+}
+
+.selectedCategories {
+  max-width: 40pc;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.categoryPill {
+  background-color: #148a08;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.5rem;
+  width: 110px;
+  border-radius: 31px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.pillButton {
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  color: #085c00;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.categoryRight{
+  min-width: 100%;
+}
