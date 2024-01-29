@@ -1,0 +1,16 @@
+.flexContainer {
+  max-height: 100vh;
+  display: flex;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.containerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid red;
+}

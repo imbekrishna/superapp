@@ -39,10 +39,10 @@
   color: white;
   font-size: 1.5rem;
   line-height: 1.2;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
-.userDetails p:nth-child(3){
+.userDetails p:nth-child(3) {
   font-size: 3rem;
   font-weight: 600;
   margin-top: 0.3rem;
@@ -63,4 +63,5 @@
   border: none;
   border-radius: 2rem;
   width: 30%;
+  text-transform: capitalize;
 }
