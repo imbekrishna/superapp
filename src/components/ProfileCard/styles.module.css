@@ -6,18 +6,18 @@
 .profileCard {
   display: flex;
   background-color: #5746ea;
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   column-gap: 3rem;
   justify-content: start;
   max-height: 300px;
-  max-width: 600px;
   border-radius: 1rem;
 }
 
 .profilePictureContainer {
   background-color: #fff;
-  aspect-ratio: 1 /3;
-  width: 150px;
+  aspect-ratio: 1/2;
+  max-width: 150px;
+  width: 15%;
   overflow: hidden;
   border-radius: 5rem;
   border: 4px solid white;
@@ -37,13 +37,13 @@
 
 .userDetails p {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.2;
   letter-spacing: 0.1rem;
 }
 
 .userDetails p:nth-child(3) {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-top: 0.3rem;
 }
@@ -58,10 +58,10 @@
   background-color: #9f94ff;
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 2rem;
-  width: 30%;
+  width: fit-content;
   text-transform: capitalize;
 }

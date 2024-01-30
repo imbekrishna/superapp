@@ -67,32 +67,43 @@ const TimerCard = () => {
   return (
     <div className={styles.flexContainer}>
       <div className={styles.timerClockDiv}>
-        <CircularProgressbarWithChildren
-          value={progress}
-          strokeWidth={4}
-          styles={buildStyles({
-            pathColor: `#FF6A6A`,
-            textColor: '#f88',
-            trailColor: 'transparent',
-          })}
-        >
-          <p className={styles.countDownText}>{countDown}</p>
-        </CircularProgressbarWithChildren>
+        <div>
+          <CircularProgressbarWithChildren
+            value={progress}
+            strokeWidth={4}
+            styles={buildStyles({
+              pathColor: `#FF6A6A`,
+              textColor: '#f88',
+              trailColor: 'transparent',
+            })}
+          >
+            <p className={styles.countDownText}>{countDown}</p>
+          </CircularProgressbarWithChildren>
+        </div>
       </div>
       {/* set timer div */}
       <div className={styles.setTimerDiv}>
         {/* time divs */}
-        <div className={styles.timerLabelDiv}>
+        {/* <div className={styles.timerLabelDiv}>
           <p>Hours</p>
           <p>Minutes</p>
           <p>Seconds</p>
-        </div>
+        </div> */}
         <div className={styles.setTimeDiv}>
-          <TimeSetter label="hours" value={time.hours} onClick={setTime} />
+          <div className={styles.setTimeDivSection}>
+            <p>Hours</p>
+            <TimeSetter label="hours" value={time.hours} onClick={setTime} />
+          </div>
           <span className={styles.separator}>:</span>
-          <TimeSetter label="minutes" value={time.minutes} onClick={setTime} />
+          <div className={styles.setTimeDivSection}>
+            <p>Minutes</p>
+            <TimeSetter label="minutes" value={time.minutes} onClick={setTime} />
+          </div>
           <span className={styles.separator}>:</span>
-          <TimeSetter label="seconds" value={time.seconds} onClick={setTime} />
+          <div className={styles.setTimeDivSection}>
+            <p>Seconds</p>
+            <TimeSetter label="seconds" value={time.seconds} onClick={setTime} />
+          </div>
         </div>
         {/* start timer button */}
         <button onClick={isRunning ? stopCountDown : startCountDown}>
