@@ -17,7 +17,7 @@
 }
 
 .profileContainer {
-  grid-column: 1/5;
+  grid-column: 1/ span 4;
   grid-row: 1/5;
 }
 
@@ -27,9 +27,15 @@
 }
 
 .notesContainer {
-  grid-column: 5 / 7;
+  grid-column: 5 / -1;
   grid-row-start: 1;
   grid-row-end: 6;
+}
+
+.timerContainer{
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 6;
 }
 
 .containerRight {

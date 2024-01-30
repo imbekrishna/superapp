@@ -1,7 +1,8 @@
-import ProfileCard from '../../components/ProfileCard';
-import WeatherCard from '../../components/WeatherCard';
 import NewsCard from '../../components/NewsCard';
 import NoteCard from '../../components/NoteCard';
+import ProfileCard from '../../components/ProfileCard';
+import TimerCard from '../../components/TimerCard';
+import WeatherCard from '../../components/WeatherCard';
 import styles from './styles.module.css';
 
 const index = () => {
@@ -16,6 +17,9 @@ const index = () => {
         </div>
         <div className={styles.notesContainer}>
           <NoteCard />
+        </div>
+        <div className={styles.timerContainer}>
+          <TimerCard/>
         </div>
       </div>
       <div className={styles.containerRight}>

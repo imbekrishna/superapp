@@ -1,0 +1,75 @@
+.flexContainer {
+  /* bg-[#1E2343] text-black rounded-3xl py-8 px-10 */
+  background-color: #1e2343;
+  border-radius: 1rem;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.timerClockDiv {
+  /* "w-60 aspect-square bg-[#191E39] rounded-full shadow-timer-inner flex items-center justify-center p-4" */
+  width: 200px;
+  aspect-ratio: 1;
+  background-color: #191e39;
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0 0 10px 10px #ffffff1a, 0 0 10px 10px #00000066 inset;
+}
+
+.countDownText{
+  /* "text-white font-roboto font-semibold text-4xl" */
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.setTimerDiv {
+  /* "flex flex-col w-1/2 justify-between gap-y-5" */
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+  row-gap: 1.5rem;
+}
+
+.timerLabelDiv {
+  /* "flex justify-between items-center text-white px-6" */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  color: white;
+}
+
+.timerLabelDiv p {
+  font-size: 1.4rem;
+}
+
+.setTimeDiv {
+  /* "flex justify-between items-center h-full px-6" */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 100%;
+}
+
+.setTimerDiv button {
+  /* "bg-[#FF6A6A] py-3 rounded-full font-roboto text-2xl text-white" */
+  background-color: #ff6a6a;
+  border: none;
+  padding-block: 12px;
+  border-radius: 2rem;
+  color: white;
+  font-size: 1.2rem;
+} 
+
+.separator {
+  /* "text-white text-6xl mb-3" */
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
