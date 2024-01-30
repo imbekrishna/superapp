@@ -76,3 +76,9 @@
   background-color: var(--color-disabled);
   cursor: not-allowed;
 }
+
+@media screen and (min-width: 1400px) {
+  .tilesContainer{
+    gap: 1.3rem;
+  }
+}

@@ -62,22 +62,23 @@ const TimerCard = () => {
   const stopCountDown = () => {
     clearInterval(countdownId);
     setCountDown('00:00:00');
+    setProgress(0);
     setIsRunning(false);
   };
   return (
     <div className={styles.flexContainer}>
       <div className={styles.timerClockDiv}>
-          <CircularProgressbarWithChildren
-            value={progress}
-            strokeWidth={4}
-            styles={buildStyles({
-              pathColor: `#FF6A6A`,
-              textColor: '#f88',
-              trailColor: 'transparent',
-            })}
-          >
-            <p className={styles.countDownText}>{countDown}</p>
-          </CircularProgressbarWithChildren>
+        <CircularProgressbarWithChildren
+          value={progress}
+          strokeWidth={4}
+          styles={buildStyles({
+            pathColor: `#FF6A6A`,
+            textColor: '#f88',
+            trailColor: 'transparent',
+          })}
+        >
+          <p className={styles.countDownText}>{countDown}</p>
+        </CircularProgressbarWithChildren>
       </div>
       {/* set timer div */}
       <div className={styles.setTimerDiv}>
@@ -89,12 +90,20 @@ const TimerCard = () => {
           <span className={styles.separator}>:</span>
           <div className={styles.setTimeDivSection}>
             <p>Minutes</p>
-            <TimeSetter label="minutes" value={time.minutes} onClick={setTime} />
+            <TimeSetter
+              label="minutes"
+              value={time.minutes}
+              onClick={setTime}
+            />
           </div>
           <span className={styles.separator}>:</span>
           <div className={styles.setTimeDivSection}>
             <p>Seconds</p>
-            <TimeSetter label="seconds" value={time.seconds} onClick={setTime} />
+            <TimeSetter
+              label="seconds"
+              value={time.seconds}
+              onClick={setTime}
+            />
           </div>
         </div>
         {/* start timer button */}

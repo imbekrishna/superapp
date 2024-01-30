@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import NewsCard from '../../components/NewsCard';
 import NoteCard from '../../components/NoteCard';
 import ProfileCard from '../../components/ProfileCard';
@@ -5,7 +6,13 @@ import TimerCard from '../../components/TimerCard';
 import WeatherCard from '../../components/WeatherCard';
 import styles from './styles.module.css';
 
-const index = () => {
+const Homepage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/entertainment');
+  };
+
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.flexContainer}>
@@ -27,9 +34,9 @@ const index = () => {
           <NewsCard />
         </div>
       </div>
-      <button>Browse</button>
+      <button onClick={handleClick}>Browse</button>
     </div>
   );
 };
 
-export default index;
+export default Homepage;

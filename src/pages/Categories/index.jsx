@@ -39,7 +39,7 @@ const Categories = () => {
     },
     {
       name: 'western',
-      imageURL: '/src/assets/images/categories/western.webp',
+      imageURL: '/src/assets/images/categories/western.jpg',
       altText: 'Indiana jones movie poster',
       tileColor: '#902500',
       selected: false,
@@ -53,7 +53,7 @@ const Categories = () => {
     },
     {
       name: 'fantasy',
-      imageURL: '/src/assets/images/categories/fantasy.webp',
+      imageURL: '/src/assets/images/categories/fantasy.jpg',
       altText: 'Narnia movie poster',
       tileColor: '#FF4ADE',
       selected: false,
@@ -67,7 +67,7 @@ const Categories = () => {
     },
     {
       name: 'fiction',
-      imageURL: '/src/assets/images/categories/fiction.webp',
+      imageURL: '/src/assets/images/categories/fiction.jpg',
       altText: 'Avatar movie poster',
       tileColor: '#6CD061',
       selected: false,

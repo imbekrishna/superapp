@@ -7,18 +7,18 @@ const WeatherCard = () => {
 
   useEffect(() => {
     // TODO: uncomment in production
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          fetchWeatherData(`${latitude},${longitude}`);
-        },
-        () => fetchWeatherData('auto:ip')
-      );
-    } else {
-      fetchWeatherData('auto:ip');
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     (position) => {
+    //       const latitude = position.coords.latitude;
+    //       const longitude = position.coords.longitude;
+    //       fetchWeatherData(`${latitude},${longitude}`);
+    //     },
+    //     () => fetchWeatherData('auto:ip')
+    //   );
+    // } else {
+    //   fetchWeatherData('auto:ip');
+    // }
   }, []);
 
   const fetchWeatherData = (queryParams) => {
