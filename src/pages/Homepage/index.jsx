@@ -1,5 +1,6 @@
 import ProfileCard from '../../components/ProfileCard';
 import WeatherCard from '../../components/WeatherCard';
+import NewsCard from '../../components/NewsCard';
 import styles from './styles.module.css';
 
 const index = () => {
@@ -9,7 +10,9 @@ const index = () => {
         <ProfileCard />
         <WeatherCard />
       </div>
-      <div className={styles.containerRight}>News Data</div>
+      <div className={styles.containerRight}>
+        <NewsCard />
+        </div>
     </div>
   );
 };

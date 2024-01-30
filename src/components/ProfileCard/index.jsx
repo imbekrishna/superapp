@@ -1,24 +1,16 @@
 import styles from './styles.module.css';
 import { PROFILE_DATA_KEY, MOVIE_CATEGORY_KEY } from '../../utils/constants';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 const ProfileCard = () => {
-  const [userData, setUserData] = useState({});
+  let profileData = localStorage.getItem(PROFILE_DATA_KEY);
+  let movieData = localStorage.getItem(MOVIE_CATEGORY_KEY);
 
-  useEffect(() => {
-    let profileData = localStorage.getItem(PROFILE_DATA_KEY);
-    let movieData = localStorage.getItem(MOVIE_CATEGORY_KEY);
+  if (profileData && movieData) {
+    profileData = JSON.parse(profileData);
+    movieData = JSON.parse(movieData);
+  }
 
-    if (profileData && movieData) {
-      profileData = JSON.parse(profileData);
-      setUserData((prev) => ({ ...prev, ...profileData }));
-      movieData = JSON.parse(movieData);
-      setUserData((prev) => ({ ...prev, movieData }));
-    }
-  }, []);
-
-  const userMovieCategories = userData?.movieData?.map((category) => (
+  const userMovieCategories = movieData?.map((category) => (
     <p key={category}>{category}</p>
   ));
 
@@ -33,9 +25,9 @@ const ProfileCard = () => {
       </div>
       <div className={styles.profileDetails}>
         <div className={styles.userDetails}>
-          <p>{userData?.name}</p>
-          <p>{userData?.email}</p>
-          <p>{userData?.username}</p>
+          <p>{profileData?.name}</p>
+          <p>{profileData?.email}</p>
+          <p>{profileData?.username}</p>
         </div>
         <div className={styles.categoriesContainer}>{userMovieCategories}</div>
       </div>

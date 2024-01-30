@@ -1,0 +1,45 @@
+.newsContainer {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.newsImageContainer {
+  display: flex;
+  position: relative;
+  max-height: 60%;
+  flex: 1;
+}
+
+.newsData {
+  background-color: #00000077;
+  position: absolute;
+  bottom: 0;
+  padding: 0.8rem;
+}
+
+.newsData > h1 {
+  font-size: 1.4rem;
+  line-height: 130%;
+}
+
+.newsData > p {
+  font-weight: 600;
+  margin-block-start: 0.5rem;
+}
+
+.newsImageContainer > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.newsContent {
+  color: black;
+  font-size: 1.3rem;
+  padding: 1.5rem;
+  letter-spacing: 0.03rem;
+  line-height: 140%;
+}
