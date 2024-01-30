@@ -8,10 +8,28 @@
 }
 
 .containerLeft {
-  display: flex;
-  flex-direction: column;
+  background-color: darksalmon;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
   padding: 2rem;
+}
+
+.profileContainer {
+  grid-column: 1/5;
+  grid-row: 1/5;
+}
+
+.weatherContainer {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.notesContainer {
+  grid-column: 5 / 7;
+  grid-row-start: 1;
+  grid-row-end: 6;
 }
 
 .containerRight {

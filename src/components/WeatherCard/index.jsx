@@ -6,6 +6,7 @@ const WeatherCard = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
+    // TODO: uncomment in production
     // if (navigator.geolocation) {
     //   navigator.geolocation.getCurrentPosition(
     //     (position) => {

@@ -8,6 +8,7 @@ const NewsCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // TODO: uncomment in production
     // setLoading(true);
     // getAllNews();
   }, []);
