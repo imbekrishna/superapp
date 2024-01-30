@@ -69,12 +69,10 @@ const NewsCard = () => {
             </div>
           </div>
           <div className={styles.newsContent}>
-            <p>
               {allNews[0].content.replace(/\[\++\d+.\w+\]/gm, '')}{' '}
               <a target="_blank" rel="noreferrer" href={allNews[0].url}>
                 Read more
               </a>
-            </p>
           </div>
         </>
       )}

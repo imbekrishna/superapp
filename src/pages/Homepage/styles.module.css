@@ -4,11 +4,9 @@
   background-color: black;
   color: white;
   justify-content: space-between;
-  gap: 1rem;
 }
 
 .containerLeft {
-  background-color: darksalmon;
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -40,5 +38,5 @@
 .containerRight {
   flex: 1;
   max-width: 350px;
-  padding: 2rem;
+  padding: 1rem;
 }
