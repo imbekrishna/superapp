@@ -67,7 +67,6 @@ const TimerCard = () => {
   return (
     <div className={styles.flexContainer}>
       <div className={styles.timerClockDiv}>
-        <div>
           <CircularProgressbarWithChildren
             value={progress}
             strokeWidth={4}
@@ -79,16 +78,9 @@ const TimerCard = () => {
           >
             <p className={styles.countDownText}>{countDown}</p>
           </CircularProgressbarWithChildren>
-        </div>
       </div>
       {/* set timer div */}
       <div className={styles.setTimerDiv}>
-        {/* time divs */}
-        {/* <div className={styles.timerLabelDiv}>
-          <p>Hours</p>
-          <p>Minutes</p>
-          <p>Seconds</p>
-        </div> */}
         <div className={styles.setTimeDiv}>
           <div className={styles.setTimeDivSection}>
             <p>Hours</p>

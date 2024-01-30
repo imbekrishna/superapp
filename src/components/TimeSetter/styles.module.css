@@ -1,4 +1,4 @@
-.flexContainer{
+.flexContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,18 +6,27 @@
   color: #949494;
 }
 
-.counterContainer{
+.counterContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
 }
 
-.counterContainer img{
+.counterContainer img {
   width: 1.3rem;
 }
 
-.counterContainer p{
+.counterContainer p {
   color: white;
   font-size: 2.4rem;
+}
+
+@media screen and (min-width: 1400px) {
+  .counterContainer p {
+    font-size: 2.9rem;
+  }
+  .counterContainer {
+    gap: 0.5rem;
+  }
 }

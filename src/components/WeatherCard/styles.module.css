@@ -1,6 +1,9 @@
 .weatherCard {
   border-radius: 1rem;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .dateTime {
@@ -15,6 +18,7 @@
 }
 
 .weatherData {
+  height: 100%;
   background-color: #101744;
   display: flex;
   justify-content: space-evenly;
@@ -28,6 +32,7 @@
   justify-content: center;
   row-gap: 0.5rem;
   text-align: center;
+  min-height: 100px;
 }
 
 .sectionDivider {
@@ -70,4 +75,43 @@
 
 .weatherSection:last-of-type {
   justify-content: space-evenly;
+}
+
+@media screen and (min-width: 1400px) {
+  .dateTime {
+    font-size: 2.5rem;
+    padding-block: 1rem;
+  }
+
+  .weatherIcon {
+    min-width: 90px;
+    margin-inline: auto;
+  }
+
+  .weatherIcon + p {
+    font-size: 1.8rem;
+  }
+
+  .temperature {
+    font-size: 3.3rem;
+    font-weight: 500;
+  }
+
+  .dataStatsSection {
+    gap: 1.2rem;
+  }
+
+  .dataStatsSection > img {
+    width: 1.8rem;
+  }
+
+  .dataDetails {
+    font-size: 1.2rem;
+    row-gap: 0.3rem;
+  }
+
+  .weatherSection {
+    gap: 1rem;
+    min-height: 150px;
+  }
 }

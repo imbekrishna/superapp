@@ -7,24 +7,27 @@ import styles from './styles.module.css';
 
 const index = () => {
   return (
-    <div className={styles.flexContainer}>
-      <div className={styles.containerLeft}>
-        <div className={styles.profileContainer}>
-          <ProfileCard />
+    <div className={styles.homePageContainer}>
+      <div className={styles.flexContainer}>
+        <div className={styles.containerLeft}>
+          <div className={styles.profileContainer}>
+            <ProfileCard />
+          </div>
+          <div className={styles.weatherContainer}>
+            <WeatherCard />
+          </div>
+          <div className={styles.notesContainer}>
+            <NoteCard />
+          </div>
+          <div className={styles.timerContainer}>
+            <TimerCard />
+          </div>
         </div>
-        <div className={styles.weatherContainer}>
-          <WeatherCard />
-        </div>
-        <div className={styles.notesContainer}>
-          <NoteCard />
-        </div>
-        <div className={styles.timerContainer}>
-          <TimerCard/>
+        <div className={styles.containerRight}>
+          <NewsCard />
         </div>
       </div>
-      <div className={styles.containerRight}>
-        <NewsCard />
-      </div>
+      <button>Browse</button>
     </div>
   );
 };

@@ -9,7 +9,8 @@
   padding: 1rem 1.5rem;
   column-gap: 3rem;
   justify-content: start;
-  max-height: 300px;
+  /* max-height: 300px; */
+  height: 100%;
   border-radius: 1rem;
 }
 
@@ -64,4 +65,23 @@
   border-radius: 2rem;
   width: fit-content;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 1400px) {
+
+  .profileCard{
+    padding: 1rem 2rem;
+  }
+  .userDetails p {
+    font-size: 1.6rem;
+  }
+
+  .userDetails p:nth-child(3) {
+    font-size: 2.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .categoriesContainer p {
+    font-size: 1.2rem;
+  }
 }
