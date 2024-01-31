@@ -1,39 +1,38 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import MovieList from '../MovieList';
 
 const MovieSection = (props) => {
   const posterUrl = 'https://image.tmdb.org/t/p/w780/';
 
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(null);
-  const [scrollLeft, setScrollLeft] = useState(null);
+  const [allMovies, setAllMovies] = useState({ page: '', results: [] });
+  const [isLoading, setIsLoading] = useState(true);
 
-  const ref = useRef(null);
-  const slider = ref.current;
+  useEffect(() => {
+    setIsLoading(true);
+    getMoviesByGenres(props.genre.id);
+  }, [props.genre.id]);
 
-  const handleMouseDown = (e) => {
-    setIsDown(true);
-    setStartX(e.pageX - slider.offsetLeft);
-    setScrollLeft(slider.scrollLeft);
+  const getMoviesByGenres = (genre) => {
+    const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genre}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
+      },
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        setAllMovies(json);
+      })
+      .catch((err) => console.error('error:' + err))
+      .finally(setIsLoading(false));
   };
 
-  const handleMouseAway = () => {
-    setIsDown(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    scroll(e);
-  };
-
-  const scroll = (e) => {
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 3;
-    slider.scrollLeft = scrollLeft - walk;
-  };
-
-  const movieList = props.movies.map((movie) => (
+  const movieList = allMovies.results.map((movie) => (
     <div
       key={movie.id}
       className={styles.movie}
@@ -45,17 +44,8 @@ const MovieSection = (props) => {
 
   return (
     <section className={styles.movieSection}>
-      <h3>{props.name}</h3>
-      <div
-        className={styles.movieList}
-        ref={ref}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseAway}
-        onMouseLeave={handleMouseAway}
-        onMouseMove={handleMouseMove}
-      >
-        {movieList}
-      </div>
+      <h3>{props.genre.name}</h3>
+      <MovieList>{isLoading ? <p>Loading</p> : movieList}</MovieList>
     </section>
   );
 };
