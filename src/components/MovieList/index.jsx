@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { useRef, useState, memo } from 'react';
+import { useRef, useState, memo, Suspense } from 'react';
 import styles from './styles.module.css';
 
 const MovieList = (props) => {
@@ -33,17 +33,23 @@ const MovieList = (props) => {
   };
 
   return (
-    <div
-      className={styles.movieList}
-      ref={ref}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseAway}
-      onMouseLeave={handleMouseAway}
-      onMouseMove={handleMouseMove}
-    >
-      {props.children}
-    </div>
+    <Suspense fallback={<LoadingSpinner />}>
+      <div
+        className={styles.movieList}
+        ref={ref}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseAway}
+        onMouseLeave={handleMouseAway}
+        onMouseMove={handleMouseMove}
+      >
+        {props.children}
+      </div>
+    </Suspense>
   );
+};
+
+const LoadingSpinner = () => {
+  return <div>Loading...</div>;
 };
 
 export default memo(MovieList);

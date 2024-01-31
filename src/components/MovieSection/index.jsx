@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import MovieList from '../MovieList';
 
 const MovieSection = (props) => {
-  const posterUrl = 'https://image.tmdb.org/t/p/w780/';
+  const posterUrl = 'https://image.tmdb.org/t/p/w300/';
 
   const [allMovies, setAllMovies] = useState({ page: '', results: [] });
   const [isLoading, setIsLoading] = useState(true);
@@ -45,9 +45,16 @@ const MovieSection = (props) => {
   return (
     <section className={styles.movieSection}>
       <h3>{props.genre.name}</h3>
-      <MovieList>{isLoading ? <p>Loading</p> : movieList}</MovieList>
+      <MovieList>
+        <Suspense fallback={<LoadingComponent />}>
+          {isLoading ? <p>Loading</p> : movieList}
+        </Suspense>
+      </MovieList>
     </section>
   );
+};
+const LoadingComponent = () => {
+  return <div className={styles.movie}>Loading...</div>;
 };
 
 export default MovieSection;

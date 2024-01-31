@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import CategoryPill from '../../components/CategoryPill';
@@ -83,9 +83,23 @@ const Categories = () => {
     },
   ]);
 
+  useEffect(() => {
+    const data = localStorage.getItem(MOVIE_CATEGORY_KEY);
+    if (data) {
+      const selectedCatIds = JSON.parse(data).map((c) => c.id);
+      setMovieCategories((prev) => {
+        return prev.map((category) =>
+          selectedCatIds.includes(category.id)
+            ? { ...category, selected: true }
+            : category
+        );
+      });
+    }
+  }, []);
+
   const selectedCategories = movieCategories
     .filter((movie) => movie.selected)
-    .map((movie) => ({id: movie.id, name:movie.name}));
+    .map((movie) => ({ id: movie.id, name: movie.name }));
 
   const canProceed = selectedCategories.length >= 3;
 
@@ -113,7 +127,11 @@ const Categories = () => {
   ));
 
   const selectedCategory = selectedCategories.map((category) => (
-    <CategoryPill key={category.id} category={category} onClick={selectCategory} />
+    <CategoryPill
+      key={category.id}
+      category={category}
+      onClick={selectCategory}
+    />
   ));
 
   return (
