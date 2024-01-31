@@ -16,7 +16,7 @@ const NoteCard = () => {
     <div className={styles.noteContainer}>
       <h1 className={styles.noteTitle}>All notes</h1>
       <textarea
-        value={noteData}
+        value={noteData ?? ''}
         onChange={handleNoteChange}
         className={styles.noteTextArea}
       />

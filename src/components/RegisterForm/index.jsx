@@ -1,8 +1,11 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
 import { PROFILE_DATA_KEY } from '../../utils/constants';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+
   const initalFormData = {
     name: '',
     username: '',
@@ -80,6 +83,8 @@ const RegisterForm = () => {
       localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(formData));
       setFormData(initalFormData);
     }
+
+    navigate('/categories');
   }
 
   return (

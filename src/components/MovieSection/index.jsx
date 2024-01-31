@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import styles from './styles.module.css';
 
 const MovieSection = (props) => {
+  const posterUrl = 'https://image.tmdb.org/t/p/w780/';
+
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(null);
   const [scrollLeft, setScrollLeft] = useState(null);
@@ -35,7 +37,7 @@ const MovieSection = (props) => {
     <div
       key={movie.id}
       className={styles.movie}
-      style={{ backgroundImage: `url(${movie.posterUrl})` }}
+      style={{ backgroundImage: `url(${posterUrl}/${movie.backdrop_path})` }}
     >
       <p className={styles.movieName}>{movie.title}</p>
     </div>
