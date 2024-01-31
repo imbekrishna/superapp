@@ -1,15 +1,36 @@
 import styles from './styles.module.css';
 
-
 const TimeSetter = (props) => {
   const handleIncrement = () => {
     props.onClick((prev) => {
-      return { ...prev, [props.label]: props.value + 1 };
+      let newValue;
+
+      if (props.label === 'hours') {
+        newValue = prev[props.label] + 1;
+      } else {
+        newValue = prev[props.label] < 59 ? prev[props.label] + 1 : 0;
+      }
+      return {
+        ...prev,
+        [props.label]: newValue,
+      };
     });
   };
   const handleDecrement = () => {
     props.onClick((prev) => {
-      return { ...prev, [props.label]: props.value > 0 ? props.value - 1 : 0 };
+      let newValue;
+      if (props.label === 'hours') {
+        newValue = prev[props.label] > 0 ? prev[props.label] - 1 : 0;
+      } else {
+        newValue =
+          prev[props.label] > 0 && prev[props.label] < 60
+            ? prev[props.label] - 1
+            : 59;
+      }
+      return {
+        ...prev,
+        [props.label]: newValue,
+      };
     });
   };
   return (
@@ -20,9 +41,7 @@ const TimeSetter = (props) => {
           alt="timer increment button"
           onClick={handleIncrement}
         />
-        <p>
-          {props.value < 10 ? '0' + props.value : props.value}
-        </p>
+        <p>{props.value < 10 ? '0' + props.value : props.value}</p>
         <img
           src="/src/assets/images/decrement_timer.svg"
           alt="timer increment button"

@@ -1,12 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import TimeSetter from '../TimeSetter';
-import {
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from 'react-circular-progressbar';
-
-let countdownId;
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const TimerCard = () => {
   const counterBell = new Audio('/src/assets/audio/basic_bell.mp3');
@@ -17,29 +12,15 @@ const TimerCard = () => {
     seconds: 0,
   });
 
-  const [countDown, setCountDown] = useState('00:00:00');
+  const [totalSeconds, setTotalSeconds] = useState(0);
+
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    setTotalSeconds(time.hours * 60 * 60 + time.minutes * 60 + time.seconds);
+  }, [time]);
+
   const [isRunning, setIsRunning] = useState(false);
-  const [progress, setProgress] = useState(0);
-
-  const timer = (seconds) => {
-    clearInterval(countdownId);
-
-    const now = Date.now();
-    const then = now + seconds * 1000;
-
-    countdownId = setInterval(() => {
-      const secondsLeft = Math.round((then - Date.now()) / 1000);
-      setProgress(((seconds - secondsLeft) / seconds) * 100);
-
-      if (secondsLeft < 0) {
-        stopCountDown();
-        counterBell.play();
-        return;
-      }
-
-      timeLeft(secondsLeft);
-    }, 1000);
-  };
 
   const timeLeft = (seconds) => {
     const h = Math.floor(seconds / 3600);
@@ -50,35 +31,39 @@ const TimerCard = () => {
       s < 10 ? '0' : ''
     }${s}`;
 
-    setCountDown(display);
+    return display;
   };
 
   const startCountDown = () => {
-    const seconds = time.hours * 60 * 60 + time.minutes * 60 + time.seconds;
-    timer(seconds);
     setIsRunning(true);
   };
 
-  const stopCountDown = () => {
-    clearInterval(countdownId);
-    setCountDown('00:00:00');
-    setProgress(0);
+  const handleOnComplete = () => {
     setIsRunning(false);
   };
+
   return (
     <div className={styles.flexContainer}>
       <div className={styles.timerClockDiv}>
-        <CircularProgressbarWithChildren
-          value={progress}
-          strokeWidth={4}
-          styles={buildStyles({
-            pathColor: `#FF6A6A`,
-            textColor: '#f88',
-            trailColor: 'transparent',
-          })}
+        <CountdownCircleTimer
+          key={key}
+          isPlaying={isRunning}
+          duration={totalSeconds}
+          colors="#ff6a6a"
+          trailColor="0,0,0,0"
+          strokeWidth={5}
+          isGrowing={true}
+          rotation="counterclockwise"
+          onComplete={() => {
+            handleOnComplete();
+            counterBell.play();
+            setKey((prev) => prev + 1);
+          }}
         >
-          <p className={styles.countDownText}>{countDown}</p>
-        </CircularProgressbarWithChildren>
+          {({ remainingTime }) => (
+            <p className={styles.countDownText}>{timeLeft(remainingTime)}</p>
+          )}
+        </CountdownCircleTimer>
       </div>
       {/* set timer div */}
       <div className={styles.setTimerDiv}>
@@ -107,7 +92,10 @@ const TimerCard = () => {
           </div>
         </div>
         {/* start timer button */}
-        <button onClick={isRunning ? stopCountDown : startCountDown}>
+        <button
+          disabled={totalSeconds <= 0}
+          onClick={isRunning ? handleOnComplete : startCountDown}
+        >
           {isRunning ? 'STOP' : 'START'}
         </button>
       </div>

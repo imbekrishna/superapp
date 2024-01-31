@@ -22,7 +22,7 @@ const Entertainment = () => {
       headers: {
         accept: 'application/json',
         Authorization:
-          `Bearer {import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
+          `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
       },
     };
 
