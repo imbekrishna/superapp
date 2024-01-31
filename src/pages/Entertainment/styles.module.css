@@ -1,11 +1,10 @@
 .flexContainer {
-  max-height: 100vh;
-  height: 100vh;
+  min-height: 100vh;
   background: #000;
   display: flex;
   flex-direction: column;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   gap: 1rem;
 }
 
@@ -26,7 +25,7 @@
   font-size: 2rem;
 }
 
-.headerLink{
+.headerLink {
   color: inherit;
   font-family: inherit;
   text-decoration: none;
@@ -45,33 +44,9 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  overflow-y: auto;
   max-width: 1700px;
   width: 100%;
   align-self: center;
-}
-
-.movieSection h3 {
-  color: #878787;
-  line-height: 140%;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.movieList {
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-}
-
-.movie {
-  flex-basis: 250px;
-  aspect-ratio: 16/9;
-  flex-shrink: 0;
-  border-radius: 1rem;
-  background-color: steelblue;
 }
 
 @media screen and (min-width: 1400px) {
@@ -85,10 +60,9 @@
   .navBar h2 {
     font-size: 3rem;
   }
-  .movie {
-    flex-basis: 300px;
+
+  .mainContainer {
+    padding-top: 1rem;
   }
-  .movieSection h3{
-    font-size: 1.5rem;
-  }
+
 }
