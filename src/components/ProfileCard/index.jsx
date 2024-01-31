@@ -11,7 +11,7 @@ const ProfileCard = () => {
   }
 
   const userMovieCategories = movieData?.map((category) => (
-    <p key={category}>{category}</p>
+    <p key={category.id}>{category.name}</p>
   ));
 
   return (

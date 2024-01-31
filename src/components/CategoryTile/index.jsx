@@ -8,7 +8,7 @@ const CategoryTile = (props) => {
     <div
       className={`${styles.categoryTile} ${props.selected && styles.selected}`}
       style={style}
-      onClick={() => props.onClick(props.name)}
+      onClick={() => props.onClick(props.id)}
     >
       <p>{props.name}</p>
       <img src={props.imageURL} alt={props.altText} />

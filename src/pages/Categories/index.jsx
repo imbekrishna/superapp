@@ -10,6 +10,7 @@ const Categories = () => {
   const navigate = useNavigate();
   const [movieCategories, setMovieCategories] = useState([
     {
+      id: 28,
       name: 'action',
       imageURL: '/src/assets/images/categories/action.jpg',
       altText: 'John wick chapter 2 movie poster',
@@ -17,6 +18,7 @@ const Categories = () => {
       selected: true,
     },
     {
+      id: 18,
       name: 'drama',
       imageURL: '/src/assets/images/categories/drama.jpg',
       altText: 'Shawshank redemption movie poster',
@@ -24,6 +26,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 10749,
       name: 'romance',
       imageURL: '/src/assets/images/categories/romance.jpg',
       altText: 'The fault in our stars movie poster',
@@ -31,6 +34,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 53,
       name: 'thriller',
       imageURL: '/src/assets/images/categories/thriller.jpg',
       altText: 'Shutter island poster',
@@ -38,6 +42,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 37,
       name: 'western',
       imageURL: '/src/assets/images/categories/western.jpg',
       altText: 'Indiana jones movie poster',
@@ -45,6 +50,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 27,
       name: 'horror',
       imageURL: '/src/assets/images/categories/horror.jpg',
       altText: 'Anabelle movie poster',
@@ -52,6 +58,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 14,
       name: 'fantasy',
       imageURL: '/src/assets/images/categories/fantasy.jpg',
       altText: 'Narnia movie poster',
@@ -59,6 +66,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 10402,
       name: 'music',
       imageURL: '/src/assets/images/categories/music.jpg',
       altText: 'Whiplash movie poster',
@@ -66,6 +74,7 @@ const Categories = () => {
       selected: false,
     },
     {
+      id: 878,
       name: 'fiction',
       imageURL: '/src/assets/images/categories/fiction.jpg',
       altText: 'Avatar movie poster',
@@ -76,14 +85,14 @@ const Categories = () => {
 
   const selectedCategories = movieCategories
     .filter((movie) => movie.selected)
-    .map((movie) => movie.name);
+    .map((movie) => ({id: movie.id, name:movie.name}));
 
   const canProceed = selectedCategories.length >= 3;
 
-  const selectCategory = (categoryName) => {
+  const selectCategory = (categoryId) => {
     setMovieCategories((prevSelected) =>
       prevSelected.map((movie) =>
-        movie.name === categoryName
+        movie.id === categoryId
           ? { ...movie, selected: !movie.selected }
           : movie
       )
@@ -100,11 +109,11 @@ const Categories = () => {
   };
 
   const categoryTiles = movieCategories.map((category) => (
-    <CategoryTile key={category.name} {...category} onClick={selectCategory} />
+    <CategoryTile key={category.id} {...category} onClick={selectCategory} />
   ));
 
   const selectedCategory = selectedCategories.map((category) => (
-    <CategoryPill key={category} category={category} onClick={selectCategory} />
+    <CategoryPill key={category.id} category={category} onClick={selectCategory} />
   ));
 
   return (

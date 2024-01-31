@@ -4,7 +4,26 @@ import movieDb from '../../utils/movie_db.json';
 import MovieSection from '../../components/MovieSection';
 
 const Entertainment = () => {
-    const allMovies = movieDb.movies;
+  const allMovies = movieDb.movies;
+
+  const getMoviesByGenres = () => {
+    const url =
+      'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=drama%2Caction%2Cthriller%2Cromance';
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGRkZWUwNTMyOWI3YzBkMmNkZDcyMmJkYzdlYzMwZiIsInN1YiI6IjY1YmEzNGNmMzBmNzljMDE4M2FiZmUzMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HsevY8V6OCmXclfei6XTj1XCub4sQYJp254kDu_9mho',
+      },
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.error('error:' + err));
+  };
+
   const actionMovies = allMovies.filter((movie) =>
     movie.genres.includes('Action')
   );
