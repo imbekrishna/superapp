@@ -82,9 +82,8 @@ const RegisterForm = () => {
     if (isFormValid) {
       localStorage.setItem(PROFILE_DATA_KEY, JSON.stringify(formData));
       setFormData(initalFormData);
+      navigate('/categories');
     }
-
-    navigate('/categories');
   }
 
   return (

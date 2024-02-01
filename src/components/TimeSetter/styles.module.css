@@ -15,6 +15,7 @@
 
 .counterContainer img {
   width: 1.3rem;
+  cursor: pointer;
 }
 
 .counterContainer p {

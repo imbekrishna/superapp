@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
+      <Route index element={<HomePage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/home" element={<HomePage />} />

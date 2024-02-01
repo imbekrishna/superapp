@@ -40,12 +40,14 @@ const TimeSetter = (props) => {
           src="/src/assets/images/increment_timer.svg"
           alt="timer increment button"
           onClick={handleIncrement}
+          role='button'
         />
         <p>{props.value < 10 ? '0' + props.value : props.value}</p>
         <img
           src="/src/assets/images/decrement_timer.svg"
           alt="timer increment button"
           onClick={handleDecrement}
+          role='button'
         />
       </div>
     </div>
