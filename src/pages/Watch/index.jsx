@@ -13,14 +13,10 @@ const Watch = () => {
   const style = {
     backgroundImage: `url(${posterUrl}${state.movie.backdrop_path})`,
     backgroundRepeat: 'no-repeat',
+    backgroundColor: 'black',
     backgroundSize: 'cover',
     minHeight: '100vh',
     height: '100vh',
-  };
-
-  const videoPlayerStyle = {
-    top: "50%",
-    left: "50%",
   };
 
   return (
@@ -30,7 +26,14 @@ const Watch = () => {
           <h1>{state.movie.title}</h1>
           <p className={styles.movieOverview}>{state.movie.overview}</p>
           <div className={styles.metaData}>
-            <span>{state.movie.vote_average}</span>
+            <span>
+              <img
+                width="40px"
+                src="/src/assets/images/rating_icon.svg"
+                alt="yellow start with 5 ends"
+              />
+              {state.movie.vote_average}
+            </span>
             <span>{state.movie.release_date}</span>
           </div>
           <button
@@ -44,13 +47,20 @@ const Watch = () => {
           <img src={`${posterUrl}${state.movie.poster_path}`} alt="" />
         </div>
       </div>
-      <iframe
-        className={styles.videoPlayer}
-        style={isPlaying ? videoPlayerStyle : {}}
-        src={`${import.meta.env.VITE_MOVIE_DB_URL}${state.movie.id}`}
-        allowFullScreen
-        frameBorder="0"
-      ></iframe>
+      <div
+        style={isPlaying ? { display: 'block' } : { display: 'none' }}
+        className={styles.frameContainer}
+        onClick={() => setIsPlaying(false)}
+      >
+        <iframe
+          className={styles.videoPlayer}
+          src={
+            isPlaying && `${import.meta.env.VITE_MOVIE_DB_URL}${state.movie.id}`
+          }
+          allowFullScreen
+          frameBorder="0"
+        ></iframe>
+      </div>
     </div>
   );
 };
