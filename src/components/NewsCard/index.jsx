@@ -21,11 +21,9 @@ const NewsCard = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllNews(data.articles);
-        console.log(data.articles);
       })
       .catch((error) => {
         setErrors(error);
-        console.error(error);
       })
       .finally(() => setLoading(false));
   };

@@ -29,7 +29,6 @@ const WeatherCard = () => {
       .then((res) => res.json())
       .then((res) => {
         setWeather(res);
-        console.log(res);
       })
       .catch(console.error);
   };
