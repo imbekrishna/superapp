@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import styles from './styles.module.css';
 import MovieList from '../MovieList';
 
 const MovieSection = (props) => {
   const posterUrl = 'https://image.tmdb.org/t/p/w300/';
+
+  const navigate = useNavigate();
 
   const [allMovies, setAllMovies] = useState({ page: '', results: [] });
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +40,7 @@ const MovieSection = (props) => {
     <div
       key={movie.id}
       className={styles.movie}
+      onClick={() => navigate('/watch', { state: { movie } })}
       style={{ backgroundImage: `url(${posterUrl}/${movie.backdrop_path})` }}
     >
       <p className={styles.movieName}>{movie.title}</p>
