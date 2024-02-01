@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import MovieList from '../MovieList';
 
@@ -45,16 +45,9 @@ const MovieSection = (props) => {
   return (
     <section className={styles.movieSection}>
       <h3>{props.genre.name}</h3>
-      <MovieList>
-        <Suspense fallback={<LoadingComponent />}>
-          {isLoading ? <p>Loading</p> : movieList}
-        </Suspense>
-      </MovieList>
+      <MovieList>{isLoading ? <p>Loading</p> : movieList}</MovieList>
     </section>
   );
-};
-const LoadingComponent = () => {
-  return <div className={styles.movie}>Loading...</div>;
 };
 
 export default MovieSection;

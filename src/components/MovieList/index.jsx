@@ -33,7 +33,7 @@ const MovieList = (props) => {
   };
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <Suspense fallback={<LoadingComponent />}>
       <div
         className={styles.movieList}
         ref={ref}
@@ -48,8 +48,17 @@ const MovieList = (props) => {
   );
 };
 
-const LoadingSpinner = () => {
-  return <div>Loading...</div>;
+const LoadingComponent = () => {
+  return (
+    <>
+      <div className={styles.movie}>Loading...</div>
+      <div className={styles.movie}>Loading...</div>
+      <div className={styles.movie}>Loading...</div>
+      <div className={styles.movie}>Loading...</div>
+      <div className={styles.movie}>Loading...</div>
+      <div className={styles.movie}>Loading...</div>
+    </>
+  );
 };
 
 export default memo(MovieList);
