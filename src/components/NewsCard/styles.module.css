@@ -43,3 +43,9 @@
   letter-spacing: 0.03rem;
   line-height: 140%;
 }
+
+@media screen and (max-width: 768px) {
+  .newsContainer {
+    min-height: 60vh;
+  }
+}

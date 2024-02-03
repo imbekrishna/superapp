@@ -69,12 +69,12 @@ const TimerCard = () => {
       <div className={styles.setTimerDiv}>
         <div className={styles.setTimeDiv}>
           <div className={styles.setTimeDivSection}>
-            <p>Hours</p>
+            <p>HH</p>
             <TimeSetter label="hours" value={time.hours} onClick={setTime} />
           </div>
           <span className={styles.separator}>:</span>
           <div className={styles.setTimeDivSection}>
-            <p>Minutes</p>
+            <p>MM</p>
             <TimeSetter
               label="minutes"
               value={time.minutes}
@@ -83,7 +83,7 @@ const TimerCard = () => {
           </div>
           <span className={styles.separator}>:</span>
           <div className={styles.setTimeDivSection}>
-            <p>Seconds</p>
+            <p>SS</p>
             <TimeSetter
               label="seconds"
               value={time.seconds}

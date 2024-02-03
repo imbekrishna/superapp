@@ -88,18 +88,24 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .flexContainer{
+  .flexContainer {
     flex-direction: column;
   }
 
-  .containerLeft{
+  .containerLeft {
     grid-template-rows: auto;
     column-gap: 0;
     row-gap: 1rem;
   }
 
-  .notesContainer{
+  .notesContainer {
     grid-column: 1/-1;
     grid-row: auto;
+    height: 30vh;
   }
+
+  .containerRight {
+    max-width: 100%;
+  }
+  
 }
