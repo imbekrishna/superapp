@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import { useEffect } from 'react';
 
 const NewsCard = () => {
-  const [allNews, setAllNews] = useState([]);
+  const [topNews, setTopNews] = useState({});
   const [errors, setErrors] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -14,13 +14,13 @@ const NewsCard = () => {
 
   const getAllNews = () => {
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=${
-        import.meta.env.VITE_NEWSORG_API_KEY
-      }`
+      `https://api.thenewsapi.com/v1/news/top?api_token=${
+        import.meta.env.VITE_THENEWS_API_KEY
+      }&locale=in&limit=1`
     )
       .then((res) => res.json())
-      .then((data) => {
-        setAllNews(data.articles);
+      .then((res) => {
+        setTopNews(res.data[0]);
       })
       .catch((error) => {
         setErrors(error);
@@ -54,22 +54,22 @@ const NewsCard = () => {
         <>
           <div className={styles.newsImageContainer}>
             <img
-              src={allNews[1].urlToImage ?? '/src/assets/images/news_bg.png'}
-              alt={allNews[1].title}
+              src={topNews.image_url ?? '/src/assets/images/news_bg.png'}
+              alt={topNews.title}
             />
             <div className={styles.newsData}>
-              <h1>{allNews[1].title}</h1>
+              <h1>{topNews.title}</h1>
               <p>
-                {formattedDate(allNews[1].publishedAt)} |{' '}
-                {formattedTime(allNews[1].publishedAt)}
+                {formattedDate(topNews.published_at)} |{' '}
+                {formattedTime(topNews.published_at)}
               </p>
             </div>
           </div>
           <div className={styles.newsContent}>
-              {allNews[1].content.replace(/\[\++\d+.\w+\]/gm, '')}{' '}
-              <a target="_blank" rel="noreferrer" href={allNews[2].url}>
-                Read more
-              </a>
+            {topNews.snippet}{' '}
+            <a target="_blank" rel="noreferrer" href={topNews.url}>
+              Read more
+            </a>
           </div>
         </>
       )}
