@@ -54,19 +54,19 @@ const NewsCard = () => {
         <>
           <div className={styles.newsImageContainer}>
             <img
-              src={allNews[2].urlToImage ?? '/src/assets/images/news_bg.png'}
-              alt={allNews[2].title}
+              src={allNews[1].urlToImage ?? '/src/assets/images/news_bg.png'}
+              alt={allNews[1].title}
             />
             <div className={styles.newsData}>
-              <h1>{allNews[2].title}</h1>
+              <h1>{allNews[1].title}</h1>
               <p>
-                {formattedDate(allNews[2].publishedAt)} |{' '}
-                {formattedTime(allNews[2].publishedAt)}
+                {formattedDate(allNews[1].publishedAt)} |{' '}
+                {formattedTime(allNews[1].publishedAt)}
               </p>
             </div>
           </div>
           <div className={styles.newsContent}>
-              {allNews[2].content.replace(/\[\++\d+.\w+\]/gm, '')}{' '}
+              {allNews[1].content.replace(/\[\++\d+.\w+\]/gm, '')}{' '}
               <a target="_blank" rel="noreferrer" href={allNews[2].url}>
                 Read more
               </a>
