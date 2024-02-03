@@ -1,13 +1,36 @@
 import { useNavigate } from 'react-router-dom';
 import NewsCard from '../../components/NewsCard';
 import NoteCard from '../../components/NoteCard';
-import ProfileCard from '../../components/ProfileCard';
 import TimerCard from '../../components/TimerCard';
-import WeatherCard from '../../components/WeatherCard';
 import styles from './styles.module.css';
 
+import { PROFILE_DATA_KEY } from '../../utils/constants';
+import { useEffect, lazy, Suspense } from 'react';
+
 const Homepage = () => {
+  const ProfileCard = lazy(() => import('../../components/ProfileCard'));
+  const WeatherCard = lazy(() => import('../../components/WeatherCard'));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem(PROFILE_DATA_KEY));
+    if (!user) {
+      navigate('/register');
+      return;
+    }
+
+    const userDetails = ['name', 'username', 'email', 'mobile', 'terms'];
+    const validUser = userDetails.every(
+      (detail) =>
+        Object.prototype.hasOwnProperty.call(user, detail) &&
+        user[detail] !== null
+    );
+
+    if (!validUser) {
+      navigate('/register');
+      return;
+    }
+  }, [navigate]);
 
   const handleClick = () => {
     navigate('/entertainment');
@@ -18,10 +41,15 @@ const Homepage = () => {
       <div className={styles.flexContainer}>
         <div className={styles.containerLeft}>
           <div className={styles.profileContainer}>
-            <ProfileCard />
+            <Suspense fallback={<p>Loading...</p>}>
+              <ProfileCard />
+            </Suspense>
           </div>
           <div className={styles.weatherContainer}>
-            <WeatherCard />
+            {' '}
+            <Suspense fallback={<p>Loading...</p>}>
+              <WeatherCard />
+            </Suspense>
           </div>
           <div className={styles.notesContainer}>
             <NoteCard />
