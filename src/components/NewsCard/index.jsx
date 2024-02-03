@@ -9,7 +9,7 @@ const NewsCard = () => {
 
   useEffect(() => {
     setLoading(true);
-    getAllNews();
+    // getAllNews();
   }, []);
 
   const getAllNews = () => {

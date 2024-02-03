@@ -47,8 +47,8 @@
 }
 
 .formContainer {
-  max-width: 70%;
-  min-width: 50%;
+  min-width: 20vw;
+  max-width: 30vw;
   width: 100%;
 }
 
@@ -58,5 +58,25 @@
   }
   .registerLeft{
     padding: 4rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .flexContainer{
+    flex-direction: column;
+  }
+
+  .registerLeft{
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .registerRight{
+    min-height: 100vh;
+    padding-block: 2rem;
+  }
+
+  .formContainer{
+    max-width: 80vw;
   }
 }

@@ -45,8 +45,12 @@ input[type='checkbox'] {
   accent-color: var(--color-primary);
 }
 
+.tNcDiv {
+  display: flex;
+}
+
 .formButton {
-  border-radius: 20px;
+  border-radius: 3rem;
   font-weight: 600;
   text-indent: 0;
   background-color: var(--color-primary);
@@ -61,11 +65,21 @@ input[type='checkbox'] {
 }
 
 .registerRightBottom p {
-  letter-spacing: 0.3px;
+  letter-spacing: 0.05rem;
   line-height: 1.5;
 }
 
 .registerRightBottom > p span {
   font-weight: bold;
   color: var(--color-primary);
+}
+
+@media only screen and (max-width: 768px) {
+  .formInput,
+  .formButton {
+    padding-block: 0.9rem;
+  }
+  .formField :last-of-type {
+    font-size: 0.95rem;
+  }
 }

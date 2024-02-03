@@ -140,7 +140,7 @@ const RegisterForm = () => {
           <p className={styles.fieldError}>{errors.mobile}</p>
         </div>
         <div className={styles.formField}>
-          <label htmlFor="terms">
+          <div className={styles.tNcDiv}>
             <input
               className={`${errors.terms ? styles.error : ''}`}
               type="checkbox"
@@ -149,8 +149,10 @@ const RegisterForm = () => {
               checked={formData.terms}
               onChange={handleInputField}
             />
-            Share my registration data with Superapp
-          </label>
+            <label htmlFor="terms">
+              Share my registration data with Superapp
+            </label>
+          </div>
           <p className={styles.fieldError}>{errors.terms}</p>
         </div>
         <button className={styles.formButton}>SIGN UP</button>
