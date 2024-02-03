@@ -68,3 +68,9 @@
     padding-top: 1rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .flexContainer h1{
+    font-size: 1.2rem;
+  }
+}
