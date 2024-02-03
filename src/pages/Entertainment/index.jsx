@@ -1,12 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import MovieSection from '../../components/MovieSection';
 import { MOVIE_CATEGORY_KEY } from '../../utils/constants';
+import { useEffect } from 'react';
 
 const Entertainment = () => {
   const userGenres = JSON.parse(localStorage.getItem(MOVIE_CATEGORY_KEY));
 
-  const movieSections = userGenres.map((genre) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userGenres) {
+      navigate('/home');
+      return;
+    }
+  }, [navigate, userGenres]);
+
+  const movieSections = userGenres?.map((genre) => {
     return <MovieSection key={genre.id} genre={genre} />;
   });
 
