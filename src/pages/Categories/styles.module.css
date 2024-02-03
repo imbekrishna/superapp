@@ -78,7 +78,27 @@
 }
 
 @media screen and (min-width: 1400px) {
-  .tilesContainer{
+  .tilesContainer {
     gap: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .flexContainer {
+    flex-direction: column;
+    padding-inline: 0;
+    padding-block: 2rem;
+    align-items: center;
+  }
+  .categoryLeft {
+    display: none;
+  }
+  .categoryRight{
+    padding: 0;
+    padding-inline: 1rem;
+  }
+
+  .tilesContainer{
+    grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -136,6 +136,7 @@ const Categories = () => {
 
   return (
     <div className={styles.flexContainer}>
+      {/* TODO: Show category left on mobile */}
       <div className={styles.categoryLeft}>
         <h1>Super app</h1>
         <h2>Choose your entertainment catgory</h2>

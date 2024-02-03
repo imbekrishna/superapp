@@ -86,3 +86,20 @@
     max-width: 450px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .flexContainer{
+    flex-direction: column;
+  }
+
+  .containerLeft{
+    grid-template-rows: auto;
+    column-gap: 0;
+    row-gap: 1rem;
+  }
+
+  .notesContainer{
+    grid-column: 1/-1;
+    grid-row: auto;
+  }
+}
