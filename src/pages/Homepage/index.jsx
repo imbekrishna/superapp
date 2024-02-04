@@ -9,6 +9,7 @@ import { lazy, Suspense } from 'react';
 import useRedirectOnNoUser from '../../hooks/useHasUser';
 
 const Homepage = () => {
+  console.log('homepage reached')
   const ProfileCard = lazy(() => import('../../components/ProfileCard'));
   const WeatherCard = lazy(() => import('../../components/WeatherCard'));
 

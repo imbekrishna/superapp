@@ -4,6 +4,7 @@ import { PROFILE_DATA_KEY } from '../../utils/constants';
 import styles from './styles.module.css';
 
 const RegisterForm = () => {
+  console.log('register form reached')
   const navigate = useNavigate();
 
   const initalFormData = {
