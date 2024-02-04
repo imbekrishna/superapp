@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
-import { useEffect } from 'react';
 
 const NewsCard = () => {
   const [topNews, setTopNews] = useState({});
@@ -9,7 +8,7 @@ const NewsCard = () => {
 
   useEffect(() => {
     setLoading(true);
-    // getAllNews();
+    getAllNews();
   }, []);
 
   const getAllNews = () => {

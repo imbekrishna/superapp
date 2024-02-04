@@ -3,6 +3,9 @@ import styles from './styles.module.css';
 import { useState } from 'react';
 import { CATEGORIES } from '../../utils/constants';
 
+
+import ratingIcon from '/src/assets/images/rating_icon.svg';
+
 const Watch = () => {
   const posterUrl = 'https://image.tmdb.org/t/p/w1280';
   const [isPlaying, setIsPlaying] = useState(false);
@@ -40,7 +43,7 @@ const Watch = () => {
               <span>
                 <img
                   width="30px"
-                  src="/src/assets/images/rating_icon.svg"
+                  src={ratingIcon}
                   alt="yellow start with 5 ends"
                 />
                 {Math.round(state.movie.vote_average * 100) / 100}

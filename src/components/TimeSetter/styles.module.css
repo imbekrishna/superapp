@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-.counterContainer p {
+.counterContainer :nth-child(2) {
   color: white;
   font-size: 2.4rem;
 }

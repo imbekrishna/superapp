@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
+import humidityIcon from '/src/assets/images/weather/humidity.svg';
+import pressureIcon from '/src/assets/images/weather/pressure.svg';
+import windIcon from '/src/assets/images/weather/wind.svg';
+
 const WeatherCard = () => {
   const [date, setDate] = useState(new Date());
   const [weather, setWeather] = useState(null);
@@ -77,10 +81,7 @@ const WeatherCard = () => {
           <div className={styles.weatherSection}>
             <p className={styles.temperature}>{weather?.current.temp_c}°C</p>
             <div className={styles.dataStatsSection}>
-              <img
-                src="/src/assets/images/weather/pressure.svg"
-                alt="pressure icon"
-              />
+              <img src={pressureIcon} alt="pressure icon" />
               <div className={styles.dataDetails}>
                 <p>{weather?.current.pressure_mb} mbar</p>
                 <p>Pressure</p>
@@ -90,17 +91,14 @@ const WeatherCard = () => {
           <span className={styles.sectionDivider}></span>
           <div className={styles.weatherSection}>
             <div className={styles.dataStatsSection}>
-              <img src="/src/assets/images/weather/wind.svg" alt="wind icon" />
+              <img src={windIcon} alt="wind icon" />
               <div className={styles.dataDetails}>
                 <p>{weather?.current.wind_kph} km/h</p>
                 <p>Wind</p>
               </div>
             </div>
             <div className={styles.dataStatsSection}>
-              <img
-                src="/src/assets/images/weather/humidity.svg"
-                alt="humidity icon"
-              />
+              <img src={humidityIcon} alt="humidity icon" />
               <div className={styles.dataDetails}>
                 <p>{weather?.current.humidity}%</p>
                 <p>Humidity</p>

@@ -17,6 +17,7 @@
 .newsData {
   background-color: #00000077;
   position: absolute;
+  width: 100%;
   bottom: 0;
   padding: 0.8rem;
 }

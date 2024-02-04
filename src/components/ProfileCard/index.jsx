@@ -1,6 +1,8 @@
-import styles from './styles.module.css';
-import { PROFILE_DATA_KEY, MOVIE_CATEGORY_KEY } from '../../utils/constants';
 import { Link, useNavigate } from 'react-router-dom';
+import { MOVIE_CATEGORY_KEY, PROFILE_DATA_KEY } from '../../utils/constants';
+import styles from './styles.module.css';
+
+import profilePicture from '/src/assets/images/profile_picture.png';
 
 const ProfileCard = () => {
   let profileData = localStorage.getItem(PROFILE_DATA_KEY);
@@ -24,7 +26,7 @@ const ProfileCard = () => {
       <div className={styles.profilePictureContainer}>
         <img
           className={styles.profilePicture}
-          src="/src/assets/images/profile_picture.png"
+          src={profilePicture}
           alt="profile picture"
         />
       </div>

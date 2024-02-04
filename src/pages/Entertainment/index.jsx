@@ -1,9 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom';
-import styles from './styles.module.css';
-import MovieSection from '../../components/MovieSection';
-import { MOVIE_CATEGORY_KEY } from '../../utils/constants';
 import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import MovieSection from '../../components/MovieSection';
 import useRedirectOnNoUser from '../../hooks/useHasUser';
+import { MOVIE_CATEGORY_KEY } from '../../utils/constants';
+import styles from './styles.module.css';
+
+import profilePicture from '/src/assets/images/profile_picture.png';
 
 const Entertainment = () => {
   const userGenres = JSON.parse(localStorage.getItem(MOVIE_CATEGORY_KEY));
@@ -33,7 +35,7 @@ const Entertainment = () => {
           </h2>
           <img
             className={styles.avatar}
-            src="/src/assets/images/profile_picture.png"
+            src={profilePicture}
             alt="profile picture"
           />
         </nav>

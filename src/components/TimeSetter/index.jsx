@@ -1,5 +1,8 @@
 import styles from './styles.module.css';
 
+import decrementTimer from '/src/assets/images/decrement_timer.svg';
+import incrementTimer from '/src/assets/images/increment_timer.svg';
+
 const TimeSetter = (props) => {
   const handleIncrement = () => {
     props.onClick((prev) => {
@@ -37,17 +40,17 @@ const TimeSetter = (props) => {
     <div className={styles.flexContainer}>
       <div className={styles.counterContainer}>
         <img
-          src="/src/assets/images/increment_timer.svg"
+          src={incrementTimer}
           alt="timer increment button"
           onClick={handleIncrement}
-          role='button'
+          role="button"
         />
         <p>{props.value < 10 ? '0' + props.value : props.value}</p>
         <img
-          src="/src/assets/images/decrement_timer.svg"
+          src={decrementTimer}
           alt="timer increment button"
           onClick={handleDecrement}
-          role='button'
+          role="button"
         />
       </div>
     </div>

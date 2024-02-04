@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import styles from './styles.module.css';
-import TimeSetter from '../TimeSetter';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import TimeSetter from '../TimeSetter';
+import styles from './styles.module.css';
+
+import bellAudio from '/src/assets/audio/basic_bell.mp3';
 
 const TimerCard = () => {
-  const counterBell = new Audio('/src/assets/audio/basic_bell.mp3');
+  const counterBell = new Audio(bellAudio);
 
   const [time, setTime] = useState({
     hours: 0,

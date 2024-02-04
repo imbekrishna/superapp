@@ -1,7 +1,7 @@
-import styles from './styles.module.css';
 import { useState } from 'react';
-import { PROFILE_DATA_KEY } from '../../utils/constants';
 import { useNavigate } from 'react-router-dom';
+import { PROFILE_DATA_KEY } from '../../utils/constants';
+import styles from './styles.module.css';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
