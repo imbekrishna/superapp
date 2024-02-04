@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Categories from './pages/Categories';
 import Entertainment from './pages/Entertainment';

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import NewsCard from '../../components/NewsCard';
 import NoteCard from '../../components/NoteCard';
