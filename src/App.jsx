@@ -9,6 +9,7 @@ import Watch from './pages/Watch';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  console.log('app.jsx reached');
   return (
     <Routes>
       <Route index element={<HomePage />} />
