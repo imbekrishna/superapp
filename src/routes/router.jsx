@@ -9,7 +9,7 @@ import Register from '../pages/Register';
 import Categories from '../pages/Categories';
 import Entertainment from '../pages/Entertainment';
 import Watch from '../pages/Watch';
-
+import Error from '../pages/Error';
 
 const routes = createRoutesFromElements(
   <Route>
@@ -19,7 +19,7 @@ const routes = createRoutesFromElements(
     <Route path="/home" element={<Homepage />} />
     <Route path="/entertainment" element={<Entertainment />} />
     <Route path="/Watch" element={<Watch />} />
-    <Route path="*" element={<h1>End reached</h1>} />
+    <Route path="*" element={<Error />} />
   </Route>
 );
 

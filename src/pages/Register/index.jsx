@@ -1,9 +1,7 @@
-import React from 'react'
 import RegisterForm from '../../components/RegisterForm';
 import styles from './styles.module.css';
 
 const Register = () => {
-  console.log("register page reached")
   return (
     <div className={styles.flexContainer}>
       <div className={styles.registerLeft}>

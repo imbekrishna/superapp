@@ -26,7 +26,7 @@ const WeatherCard = () => {
 
   const fetchWeatherData = (queryParams) => {
     fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${
+      `https://api.weatherapi.com/v1/current.json?key=${
         import.meta.env.VITE_WEATHER_API_KEY
       }&q=${queryParams}&aqi=no`
     )

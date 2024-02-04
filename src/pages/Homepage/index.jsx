@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import NewsCard from '../../components/NewsCard';
 import NoteCard from '../../components/NoteCard';
@@ -9,7 +8,6 @@ import { lazy, Suspense } from 'react';
 import useRedirectOnNoUser from '../../hooks/useHasUser';
 
 const Homepage = () => {
-  console.log('homepage reached')
   const ProfileCard = lazy(() => import('../../components/ProfileCard'));
   const WeatherCard = lazy(() => import('../../components/WeatherCard'));
 
