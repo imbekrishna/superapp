@@ -1,25 +1,9 @@
-import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Categories from './pages/Categories';
-import Entertainment from './pages/Entertainment';
-import HomePage from './pages/Homepage';
-import Register from './pages/Register';
-import Watch from './pages/Watch';
-
-import { Route, Routes } from 'react-router-dom';
+import { router } from './routes/router';
 
 function App() {
-  console.log('app.jsx reached');
-  return (
-    <Routes>
-      <Route index element={<HomePage />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/entertainment" element={<Entertainment />} />
-      <Route path="/Watch" element={<Watch />} />
-    </Routes>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
