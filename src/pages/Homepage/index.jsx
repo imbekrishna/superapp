@@ -4,33 +4,16 @@ import NoteCard from '../../components/NoteCard';
 import TimerCard from '../../components/TimerCard';
 import styles from './styles.module.css';
 
-import { PROFILE_DATA_KEY } from '../../utils/constants';
-import { useEffect, lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
+import useRedirectOnNoUser from '../../hooks/useHasUser';
 
 const Homepage = () => {
   const ProfileCard = lazy(() => import('../../components/ProfileCard'));
   const WeatherCard = lazy(() => import('../../components/WeatherCard'));
+
+  useRedirectOnNoUser()
+
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem(PROFILE_DATA_KEY));
-    if (!user) {
-      navigate('/register');
-      return;
-    }
-
-    const userDetails = ['name', 'username', 'email', 'mobile', 'terms'];
-    const validUser = userDetails.every(
-      (detail) =>
-        Object.prototype.hasOwnProperty.call(user, detail) &&
-        user[detail] !== null
-    );
-
-    if (!validUser) {
-      navigate('/register');
-      return;
-    }
-  }, [navigate]);
 
   const handleClick = () => {
     navigate('/entertainment');

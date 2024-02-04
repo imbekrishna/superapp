@@ -3,11 +3,13 @@ import styles from './styles.module.css';
 import MovieSection from '../../components/MovieSection';
 import { MOVIE_CATEGORY_KEY } from '../../utils/constants';
 import { useEffect } from 'react';
+import useRedirectOnNoUser from '../../hooks/useHasUser';
 
 const Entertainment = () => {
   const userGenres = JSON.parse(localStorage.getItem(MOVIE_CATEGORY_KEY));
-
   const navigate = useNavigate();
+
+  useRedirectOnNoUser();
 
   useEffect(() => {
     if (!userGenres) {

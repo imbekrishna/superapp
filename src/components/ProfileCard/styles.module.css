@@ -38,6 +38,14 @@
   gap: 0.5rem;
 }
 
+.profileDetails a{
+  color: #5746ea;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  background: white;
+  border-radius: 3rem;
+}
+
 .userDetails p {
   color: white;
   font-size: 1.3rem;

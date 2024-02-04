@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import { PROFILE_DATA_KEY, MOVIE_CATEGORY_KEY } from '../../utils/constants';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProfileCard = () => {
   let profileData = localStorage.getItem(PROFILE_DATA_KEY);
@@ -8,11 +8,11 @@ const ProfileCard = () => {
 
   const navigate = useNavigate();
 
-  if (profileData && movieData) {
+  if (!profileData) {
+    navigate('/register');
+  } else {
     profileData = JSON.parse(profileData);
     movieData = JSON.parse(movieData);
-  } else {
-    navigate('/register');
   }
 
   const userMovieCategories = movieData?.map((category) => (
@@ -34,7 +34,11 @@ const ProfileCard = () => {
           <p>{profileData?.email}</p>
           <p>{profileData?.username}</p>
         </div>
-        <div className={styles.categoriesContainer}>{userMovieCategories}</div>
+        <div className={styles.categoriesContainer}>
+          {userMovieCategories ?? (
+            <Link to="/categories">Select categories</Link>
+          )}
+        </div>
       </div>
     </div>
   );

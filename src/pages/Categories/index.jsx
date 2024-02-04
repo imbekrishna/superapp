@@ -5,8 +5,11 @@ import CategoryPill from '../../components/CategoryPill';
 import CategoryTile from '../../components/CategoryTile';
 import { MOVIE_CATEGORY_KEY } from '../../utils/constants';
 import styles from './styles.module.css';
+import useRedirectOnNoUser from '../../hooks/useHasUser';
 
 const Categories = () => {
+  useRedirectOnNoUser();
+
   const navigate = useNavigate();
   const [movieCategories, setMovieCategories] = useState([
     {
